@@ -28,7 +28,7 @@ const NewsSection = () => {
 
   return (
     <div className="container">
-      <div className="card hide-scrollbars">
+      <div className="card_1 hide-scrollbars">
         {newsItems.map((item) => (
           <NewsCollapsingCard
             key={item.id}

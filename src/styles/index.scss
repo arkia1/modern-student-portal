@@ -160,6 +160,27 @@
 }
 
 // Card component class
-.card {
+.card_1 {
   @include card-container; // Include the mixin for card styles
+}
+
+.account-preview-container {
+  max-width: 300px;
+  height: auto;
+}
+
+//Card
+
+.card {
+  background-color: #f3f4f6; /* Equivalent to bg-gray-100 */
+  border-radius: 0.5rem; /* Equivalent to $border-radius-lg */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to $box-shadow-lg */
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: 768px) {
+    /* Equivalent to $md-breakpoint */
+    padding: 1.5rem;
+  }
 }
