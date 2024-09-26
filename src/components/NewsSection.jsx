@@ -27,8 +27,8 @@ const NewsSection = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col p-4 ">
-      <div className="w-full max-w-md h-80 overflow-y-auto bg-gray-100 rounded-lg shadow-lg hide-scrollbars p-3">
+    <div className="container">
+      <div className="card hide-scrollbars">
         {newsItems.map((item) => (
           <NewsCollapsingCard
             key={item.id}

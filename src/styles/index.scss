@@ -126,3 +126,40 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer and Edge */
 }
+
+//CARD AND CONTAINERS
+
+// styles.scss
+
+// Mixin for card container styles
+@mixin card-container {
+  width: 100%;
+  max-width: 28rem; // Equivalent to max-w-md
+  height: 20rem; // Equivalent to h-80
+  overflow-y: auto; // Enable vertical scroll if needed
+  background-color: #f7fafc; // Equivalent to bg-gray-100
+  border-radius: 0.5rem; // Equivalent to rounded-lg
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Equivalent to shadow-lg
+  padding: 0.75rem; // Equivalent to p-3
+
+  &.hide-scrollbars {
+    scrollbar-width: none; // For Firefox
+    &::-webkit-scrollbar {
+      display: none; // For Chrome, Safari, and Opera
+    }
+  }
+}
+
+// General container styles
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem; // Equivalent to p-4
+}
+
+// Card component class
+.card {
+  @include card-container; // Include the mixin for card styles
+}
