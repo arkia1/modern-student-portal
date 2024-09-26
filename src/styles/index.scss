@@ -106,3 +106,23 @@
 .slideInLeft {
   animation: slideInFromLeft 1.1s forwards; // Apply the animation
 }
+
+// Global styles
+
+.hide-scrollbars {
+  /* Hide vertical scrollbar */
+  &::-webkit-scrollbar {
+    width: 0; /* For Chrome, Safari, and Opera */
+    background: transparent; /* Optional: to make the background of scrollbar transparent */
+  }
+
+  /* Hide horizontal scrollbar */
+  &::-webkit-scrollbar {
+    height: 0; /* For Chrome, Safari, and Opera */
+    background: transparent; /* Optional: to make the background of scrollbar transparent */
+  }
+
+  /* For Firefox */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
