@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
       <Router>
-        <div className="h-screen w-full">
+        <div className="h-screen w-full ">
           <Naviggation />
           <div className="p-5">
             <Routes>

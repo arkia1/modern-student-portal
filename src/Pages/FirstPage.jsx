@@ -1,3 +1,4 @@
+import AcademicRecord from "../components/AcademicRecord";
 import AccountPreview from "../components/AccountPreview";
 import MyCourses from "../components/MyCourses";
 import NewsSection from "../components/NewsSection";
@@ -8,6 +9,7 @@ const FirstPage = () => {
       <AccountPreview />
       <NewsSection />
       <MyCourses />
+      <AcademicRecord />
     </div>
   );
 };
