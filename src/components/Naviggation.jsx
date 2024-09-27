@@ -29,27 +29,24 @@ const Naviggation = () => {
       <nav className="hidden md:flex justify-between items-center p-4 bg-gray-800 text-white">
         <div className="text-xl">Brand</div>
         <div className="space-x-4">
-          <button
-            onClick={() => handleNavigation("/")}
-            className="hover:bg-indigo-300 p-2 rounded-md duration-300"
-          >
+          <button onClick={() => handleNavigation("/")} className="button--nav">
             Home
           </button>
           <button
             onClick={() => handleNavigation("/courses")}
-            className="hover:bg-indigo-300 p-2 rounded-md duration-300"
+            className="button--nav"
           >
             Courses
           </button>
           <button
-            onClick={() => handleNavigation("/services")}
-            className="hover:bg-indigo-300 p-2 rounded-md duration-300"
+            onClick={() => handleNavigation("/time-table")}
+            className="button--nav"
           >
-            Services
+            Time Table
           </button>
           <button
             onClick={() => handleNavigation("/contact")}
-            className="hover:bg-indigo-300 p-2 rounded-md duration-300"
+            className="button--nav"
           >
             Contact
           </button>
@@ -69,27 +66,24 @@ const Naviggation = () => {
           </button>
         </div>
         <div className="flex flex-col p-4 space-y-4">
-          <button
-            onClick={() => handleNavigation("/")}
-            className="hover:bg-indigo-300 p-2 rounded-md duration-300"
-          >
+          <button onClick={() => handleNavigation("/")} className="button--nav">
             Home
           </button>
           <button
             onClick={() => handleNavigation("/courses")}
-            className="hover:bg-indigo-300 p-2 rounded-md duration-300"
+            className="button--nav"
           >
             Course
           </button>
           <button
-            onClick={() => handleNavigation("/services")}
-            className="hover:bg-indigo-300 p-2 rounded-md duration-300"
+            onClick={() => handleNavigation("/time-table")}
+            className="button--nav"
           >
-            Services
+            Time Table
           </button>
           <button
             onClick={() => handleNavigation("/contact")}
-            className="hover:bg-indigo-300 p-2 rounded-md duration-300"
+            className="button--nav"
           >
             Contact
           </button>
