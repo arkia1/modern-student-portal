@@ -1,5 +1,6 @@
 import AcademicRecord from "../components/AcademicRecord";
 import AccountPreview from "../components/AccountPreview";
+import ImportantContacts from "../components/ImportantContacts";
 import MyCourses from "../components/MyCourses";
 import NewsSection from "../components/NewsSection";
 
@@ -10,6 +11,7 @@ const FirstPage = () => {
       <NewsSection />
       <MyCourses />
       <AcademicRecord />
+      <ImportantContacts />
     </div>
   );
 };

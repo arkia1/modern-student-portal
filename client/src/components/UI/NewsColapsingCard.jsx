@@ -8,8 +8,8 @@ const NewsCollapsingCard = ({ title, date, content }) => {
   const handleToggle = () => setShow(!show);
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 mb-4">
-      <div className="flex items-center justify-between">
+    <div className="colapsing-card-container">
+      <div className="flex-between-colapsing-card">
         <h2 className="text-2xl font-semibold text-gray-800">{title}</h2>
         <p className="text-sm font-medium text-gray-600">{date}</p>
       </div>

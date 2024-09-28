@@ -49,6 +49,7 @@ const MyCourses = () => {
   return (
     <div className="container">
       <div className="card_1 hide-scrollbars">
+        <h2 className="font-semibold text-lg mb-4 text-gray-700">My Courses</h2>
         {studentCourses.map((course) => (
           <CourseCollapsingCard key={course.courseCode} course={course} />
         ))}

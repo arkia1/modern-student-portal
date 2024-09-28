@@ -195,3 +195,78 @@
     background-color: #a5b4fc; // hover:bg-indigo-300 in Tailwind (#a5b4fc is indigo-300)
   }
 }
+
+//Colapsing card first two div element styles
+
+.colapsing-card-container {
+  background-color: white;
+  border-radius: 0.5rem; // Rounded-lg equivalent
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Shadow-lg equivalent
+  padding: 1rem; // p-4 equivalent
+  margin-bottom: 1rem; // mb-4 equivalent
+
+  @media (min-width: 768px) {
+    // md breakpoint (768px)
+    padding: 1.5rem; // md:p-6 equivalent
+  }
+}
+
+// Flexbox utility for alignment
+.flex-between-colapsing-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+//Search Bar Styles
+
+.search-bar {
+  &__container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 20rem; // You can adjust the width according to your layout
+    margin: 0 auto; // Centering the search bar
+  }
+
+  &__input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px; // For rounded edges
+    border: 1px solid #ccc; // Light gray border
+    font-size: 0.875rem; // Small font
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Small shadow for depth
+    outline: none;
+
+    &:focus {
+      border-color: #a5b4fc; // Focused border color (indigo-500)
+      box-shadow: 0 0 0 2px rgba(88, 86, 214, 0.5); // Indigo shadow on focus
+    }
+  }
+
+  &__button {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #334155; // Tailwind gray-700 equivalent
+    border-radius: 50%;
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #a5b4fc; // Tailwind indigo-400 equivalent
+      color: white;
+    }
+
+    &:active {
+      background-color: #a5b4fc; // Tailwind indigo-500 equivalent
+    }
+  }
+}

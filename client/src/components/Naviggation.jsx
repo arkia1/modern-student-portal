@@ -1,19 +1,23 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import NavButton from "./UI/NavButton";
 
-const Naviggation = () => {
+const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate(); // Initialize the useNavigate hook
 
-  const toggleNav = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleNav = useCallback(() => {
+    setIsOpen((prevIsOpen) => !prevIsOpen);
+  }, []);
 
-  // Function to handle navigation
-  const handleNavigation = (path) => {
-    navigate(path);
-    setIsOpen(false); // Close the menu after navigation
-  };
+  // Memoize the navigation handler to prevent re-creation
+  const handleNavigation = useCallback(
+    (path) => {
+      navigate(path);
+      setIsOpen(false); // Close the menu after navigation
+    },
+    [navigate]
+  );
 
   return (
     <div className="z-10">
@@ -29,27 +33,20 @@ const Naviggation = () => {
       <nav className="hidden md:flex justify-between items-center p-4 bg-gray-800 text-white">
         <div className="text-xl">Brand</div>
         <div className="space-x-4">
-          <button onClick={() => handleNavigation("/")} className="button--nav">
+          <NavButton handleNavButtonClick={() => handleNavigation("/")}>
             Home
-          </button>
-          <button
-            onClick={() => handleNavigation("/courses")}
-            className="button--nav"
-          >
-            Courses
-          </button>
-          <button
-            onClick={() => handleNavigation("/time-table")}
-            className="button--nav"
+          </NavButton>
+          <NavButton handleNavButtonClick={() => handleNavigation("/courses")}>
+            My Courses
+          </NavButton>
+          <NavButton
+            handleNavButtonClick={() => handleNavigation("/time-table")}
           >
             Time Table
-          </button>
-          <button
-            onClick={() => handleNavigation("/contact")}
-            className="button--nav"
-          >
+          </NavButton>
+          <NavButton handleNavButtonClick={() => handleNavigation("/contacts")}>
             Contact
-          </button>
+          </NavButton>
         </div>
       </nav>
 
@@ -66,31 +63,24 @@ const Naviggation = () => {
           </button>
         </div>
         <div className="flex flex-col p-4 space-y-4">
-          <button onClick={() => handleNavigation("/")} className="button--nav">
+          <NavButton handleNavButtonClick={() => handleNavigation("/")}>
             Home
-          </button>
-          <button
-            onClick={() => handleNavigation("/courses")}
-            className="button--nav"
-          >
-            Course
-          </button>
-          <button
-            onClick={() => handleNavigation("/time-table")}
-            className="button--nav"
+          </NavButton>
+          <NavButton handleNavButtonClick={() => handleNavigation("/courses")}>
+            Courses
+          </NavButton>
+          <NavButton
+            handleNavButtonClick={() => handleNavigation("/time-table")}
           >
             Time Table
-          </button>
-          <button
-            onClick={() => handleNavigation("/contact")}
-            className="button--nav"
-          >
+          </NavButton>
+          <NavButton handleNavButtonClick={() => handleNavigation("/contact")}>
             Contact
-          </button>
+          </NavButton>
         </div>
       </div>
     </div>
   );
 };
 
-export default Naviggation;
+export default Navigation;

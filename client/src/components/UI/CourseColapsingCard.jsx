@@ -8,8 +8,8 @@ const CourseCollapsingCard = ({ course }) => {
   const handleToggle = () => setShow(!show);
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 mb-4">
-      <div className="flex items-center justify-between">
+    <div className="colapsing-card-container">
+      <div className="flex-between-colapsing-card">
         <h2 className="text-2xl font-semibold text-gray-800">
           {course.courseName}
         </h2>
