@@ -45,7 +45,9 @@ const CourseSelectionPage = () => {
 
       {/* Dropdown for filtering by semester */}
       <DropDown
-        label="Filter by Semester"
+        label={`${
+          selectedSemester === "All" ? "All" : `Semester ${selectedSemester}`
+        } Courses`}
         onSelect={handleSelectSemester}
         items={dropListSemesters}
         className="mb-4 w-[200px]"
