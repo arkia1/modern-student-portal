@@ -18,16 +18,26 @@ const CourseSelectionPage = () => {
         onChange={(e) => setQuery(e.target.value)}
         onSearch={() => console.log("Searched")}
       />
-      <DropDown
-        label="Select an option"
-        onSelect={handleSelect}
-        items={dropList_1}
-      />
-      <DropDown
-        label="select"
-        onSelect={() => console.log("clicked")}
-        items={["1", "2", "3"]}
-      />
+      <div className="grid grid-cols-1 md:grid-cols-2 justify-center p-4 gap-6">
+        <div className="h-screen w-full rounded-md bg-gray-100 overflow-y-auto flex">
+          <div className="bg-gray-300 w-full rounded-top-md h-[10%] flex items-center">
+            {/* Dropdown placed on the left */}
+            <DropDown
+              label="Filter"
+              onSelect={handleSelect}
+              items={dropList_1}
+              className="ml-4"
+            />
+            {/* Center the text vertically */}
+            <div className="flex-grow flex justify-center items-center">
+              <h2 className="text-gray-700 font-bold text-lg text-center">
+                Common Courses
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div className="h-screen w-full rounded-md bg-gray-100 overflow-y-auto flex"></div>
+      </div>
     </div>
   );
 };

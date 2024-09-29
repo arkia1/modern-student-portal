@@ -1,43 +1,35 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { IoIosArrowDown } from "react-icons/io"; // Import arrow icon
 
-const DropDown = ({
-  label,
-  items,
-  onSelect,
-  buttonClassName,
-  listClassName,
-  itemClassName,
-}) => {
+const DropDown = ({ label, items, onSelect, className = "" }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleSelect = (item) => {
-    onSelect(item);
-    setIsOpen(false); // Close the dropdown after selection
-  };
+  const toggleDropDown = () => setIsOpen(!isOpen);
 
   return (
-    <div className="relative w-full max-w-sm sm:max-w-xs mx-auto my-4">
+    <div className={`relative ${className}`}>
+      {" "}
+      {/* Adjusted width to half */}
+      {/* Label Button */}
       <button
-        onClick={toggleDropdown}
-        className={`flex justify-between items-center w-full py-2 px-4 border border-gray-300 rounded-lg bg-white text-gray-800 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors duration-200 ${buttonClassName}`}
+        onClick={toggleDropDown}
+        className="bg-gray-700 text-white px-4 py-2 rounded flex items-center justify-between w-full text-left"
       >
-        <span>{label}</span>
-        <span>{isOpen ? "▲" : "▼"}</span>
+        {label}
+        <IoIosArrowDown className="ml-2 text-white" /> {/* Arrow Icon */}
       </button>
+      {/* Dropdown Menu */}
       {isOpen && (
-        <ul
-          className={`absolute mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-auto z-10 ${listClassName}`}
-        >
+        <ul className="absolute mt-2 bg-white border rounded shadow-lg w-full z-10">
           {items.map((item, index) => (
             <li
               key={index}
-              onClick={() => handleSelect(item)}
-              className={`px-4 py-2 hover:bg-indigo-100 cursor-pointer text-gray-700 ${itemClassName}`}
+              onClick={() => {
+                onSelect(item);
+                setIsOpen(false);
+              }}
+              className="px-4 py-2 hover:bg-indigo-100 cursor-pointer"
             >
               {item}
             </li>
@@ -50,17 +42,9 @@ const DropDown = ({
 
 DropDown.propTypes = {
   label: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+  items: PropTypes.array.isRequired,
   onSelect: PropTypes.func.isRequired,
-  buttonClassName: PropTypes.string, // Optional class for button customization
-  listClassName: PropTypes.string, // Optional class for the dropdown list
-  itemClassName: PropTypes.string, // Optional class for the dropdown items
-};
-
-DropDown.defaultProps = {
-  buttonClassName: "", // Default to no extra classes
-  listClassName: "", // Default to no extra classes
-  itemClassName: "", // Default to no extra classes
+  className: PropTypes.string,
 };
 
 export default DropDown;
