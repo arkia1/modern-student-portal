@@ -44,6 +44,9 @@ const Navigation = () => {
           >
             Time Table
           </NavButton>
+          <NavButton handleNavButtonClick={() => handleNavigation("/account")}>
+            Account
+          </NavButton>
           <NavButton handleNavButtonClick={() => handleNavigation("/contacts")}>
             Contact
           </NavButton>
