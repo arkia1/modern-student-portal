@@ -272,17 +272,73 @@
 }
 
 // timetable
-
-// timetable.scss
-.timetable {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
+.timetable-container {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 500px; // Set a fixed height for the timetable container
+  overflow-y: auto; // Enable vertical scrolling
 }
 
-.timetable-day {
-  background-color: #f7fafc;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.timetable-header {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.timetable-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timetable-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  max-height: 200px; // Limit card height to fit inside the scrollable area
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .timetable-card-header {
+    background-color: #f3f4f6;
+    padding: 15px;
+    text-align: center;
+
+    h3 {
+      font-size: 1.4rem;
+      margin: 0;
+      color: #2d3748;
+    }
+  }
+
+  .timetable-card-body {
+    padding: 20px;
+    border-top: 1px solid #e2e8f0;
+    max-height: 150px; // Limit the body height when expanded
+    overflow-y: auto; // Enable scroll for course details
+
+    .course-details {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #edf2f7;
+      border-radius: 5px;
+
+      p {
+        margin: 5px 0;
+      }
+
+      strong {
+        color: #2b6cb0;
+      }
+    }
+  }
 }

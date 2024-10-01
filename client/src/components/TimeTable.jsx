@@ -1,60 +1,75 @@
 import { useState } from "react";
-import { Box, Collapse, Text } from "@chakra-ui/react";
-import { timetableData } from "../constants/timetableData"; // Assuming this is the dummy data
+import PropTypes from "prop-types";
+import { timetableData } from "../constants/timetableData";
+
+const TimetableCard = ({ day, courses, isOpen, toggleCard }) => {
+  return (
+    <div className="w-full">
+      {/* Header showing day */}
+      <div
+        onClick={toggleCard}
+        className={`cursor-pointer bg-gray-300 py-4 text-center text-xl font-semibold rounded-t-lg transition-all duration-300 ${
+          isOpen ? "bg-gray-500 text-white" : ""
+        }`}
+      >
+        {day}
+      </div>
+      {/* Courses details */}
+      <div
+        className={`transition-all duration-300 bg-white p-4 ${
+          isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+        } overflow-hidden`}
+      >
+        {courses.map((course, idx) => (
+          <div key={idx} className="p-2 mb-4 border-b border-gray-200">
+            <h3 className="font-bold text-lg">{course.name}</h3>
+            <p>Location: {course.location}</p>
+            <p>Building: {course.building}</p>
+            <p>Room: {course.room}</p>
+            <p>Instructor: {course.instructor}</p>
+            <p>Time: {course.time}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+TimetableCard.propTypes = {
+  day: PropTypes.string.isRequired,
+  courses: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      location: PropTypes.string.isRequired,
+      building: PropTypes.string.isRequired,
+      room: PropTypes.string.isRequired,
+      instructor: PropTypes.string.isRequired,
+      time: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  toggleCard: PropTypes.func.isRequired,
+};
 
 const Timetable = () => {
-  const [selectedDay, setSelectedDay] = useState(null);
+  const [openDay, setOpenDay] = useState(null);
 
-  const handleToggle = (day) => {
-    setSelectedDay((prev) => (prev === day ? null : day));
+  const toggleCard = (day) => {
+    setOpenDay((prevDay) => (prevDay === day ? null : day));
   };
 
   return (
-    <Box
-      className="timetable"
-      w="100%"
-      h="auto"
-      bg="gray.100"
-      p="4"
-      rounded="md"
-    >
+    <div className="w-full h-[600px] overflow-y-auto space-y-4 bg-gray-100 rounded-lg p-4 shadow-md">
       {timetableData.map((dayData) => (
-        <Box
+        <TimetableCard
           key={dayData.day}
-          mb="4"
-          bg="white"
-          rounded="md"
-          shadow="md"
-          overflow="hidden"
-        >
-          <Box
-            onClick={() => handleToggle(dayData.day)}
-            bg="gray.300"
-            py="4"
-            textAlign="center"
-            cursor="pointer"
-          >
-            <Text fontSize="lg" fontWeight="bold">
-              {dayData.day}
-            </Text>
-          </Box>
-          <Collapse in={selectedDay === dayData.day}>
-            <Box p="4">
-              {dayData.courses.map((course, index) => (
-                <Box key={index} mb="2">
-                  <Text fontWeight="bold">{course.name}</Text>
-                  <Text>{course.location}</Text>
-                  <Text>{course.building}</Text>
-                  <Text>{course.room}</Text>
-                  <Text>{course.time}</Text>
-                  <Text>{course.instructor}</Text>
-                </Box>
-              ))}
-            </Box>
-          </Collapse>
-        </Box>
+          day={dayData.day}
+          courses={dayData.courses}
+          isOpen={openDay === dayData.day}
+          toggleCard={() => toggleCard(dayData.day)}
+        />
       ))}
-    </Box>
+    </div>
   );
 };
 
