@@ -3,6 +3,7 @@ import AccountPreview from "../components/AccountPreview";
 import ImportantContacts from "../components/ImportantContacts";
 import MyCourses from "../components/MyCourses";
 import NewsSection from "../components/NewsSection";
+import Timetable from "../components/TimeTable";
 
 const FirstPage = () => {
   return (
@@ -12,6 +13,7 @@ const FirstPage = () => {
       <MyCourses />
       <AcademicRecord />
       <ImportantContacts />
+      <Timetable />
     </div>
   );
 };

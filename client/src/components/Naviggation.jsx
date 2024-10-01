@@ -39,11 +39,7 @@ const Navigation = () => {
           <NavButton handleNavButtonClick={() => handleNavigation("/courses")}>
             My Courses
           </NavButton>
-          <NavButton
-            handleNavButtonClick={() => handleNavigation("/time-table")}
-          >
-            Time Table
-          </NavButton>
+
           <NavButton handleNavButtonClick={() => handleNavigation("/account")}>
             Account
           </NavButton>
@@ -72,11 +68,7 @@ const Navigation = () => {
           <NavButton handleNavButtonClick={() => handleNavigation("/courses")}>
             Courses
           </NavButton>
-          <NavButton
-            handleNavButtonClick={() => handleNavigation("/time-table")}
-          >
-            Time Table
-          </NavButton>
+
           <NavButton handleNavButtonClick={() => handleNavigation("/contact")}>
             Contact
           </NavButton>

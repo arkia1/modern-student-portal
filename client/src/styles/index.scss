@@ -270,3 +270,19 @@
     }
   }
 }
+
+// timetable
+
+// timetable.scss
+.timetable {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.timetable-day {
+  background-color: #f7fafc;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
